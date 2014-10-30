@@ -4,7 +4,7 @@
 #
 # Copyright (c) 2014 The Authors, All Rights Reserved.
 
-package 'vsftp'
+package 'vsftpd'
 
 service 'vsftpd' do
   action [:start, :enable]
@@ -18,6 +18,6 @@ file '/etc/vsftpd/vsftpd.conf' do
 end 
 
 service 'iptables' do
-  action :stop
+  # action :stop
   # TODO add correct iptables entries for ftp access
 end
