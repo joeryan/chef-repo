@@ -50,3 +50,9 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
+
+# deleted files not cleaned?
+.fr-1mDepu/
+.fr-Cvqjob/
+.fr-MmRRef/
+
