@@ -10,12 +10,12 @@ service 'vsftpd' do
   action [:start, :enable]
 end
 
-file '/etc/vsftpd/vsftpd.conf' do
+# file '/etc/vsftpd.conf' do
 # TODO add configuration changes
 # anonymous_enable=NO
 # local_enable=YES
 # chroot_local_user=YES
-end 
+# end 
 
 service 'iptables' do
   # action :stop
