@@ -9,7 +9,7 @@
 # capabilities.
 #
 # Allow anonymous FTP? (Beware - allowed by default if you comment this out).
-anonymous_enable=NO
+anonymous_enable=YES
 #
 # Uncomment this to allow local users to log in.
 local_enable=YES
@@ -24,7 +24,7 @@ local_umask=022
 # Uncomment this to allow the anonymous FTP user to upload files. This only
 # has an effect if the above global write enable is activated. Also, you will
 # obviously need to create a directory writable by the FTP user.
-#anon_upload_enable=YES
+# anon_upload_enable=YES
 #
 # Uncomment this if you want the anonymous FTP user to be able to create
 # new directories.
@@ -49,7 +49,7 @@ connect_from_port_20=YES
 #
 # The name of log file when xferlog_enable=YES and xferlog_std_format=YES
 # WARNING - changing this filename affects /etc/logrotate.d/vsftpd.log
-#xferlog_file=/var/log/xferlog
+xferlog_file=/var/log/xferlog
 #
 # Switches between logging into vsftpd_log_file and xferlog_file files.
 # NO writes to vsftpd_log_file, YES to xferlog_file
@@ -63,7 +63,7 @@ xferlog_std_format=YES
 #
 # It is recommended that you define on your system a unique user which the
 # ftp server can use as a totally isolated and unprivileged user.
-#nopriv_user=ftpsecure
+nopriv_user=ftpsecure
 #
 # Enable this and the server will recognise asynchronous ABOR requests. Not
 # recommended for security (the code is non-trivial). Not enabling it,
@@ -92,7 +92,7 @@ ftpd_banner=Welcome to FTP service.  This is for my use only and violators will 
 # You may specify an explicit list of local users to chroot() to their home
 # directory. If chroot_local_user is YES, then this list becomes a list of
 # users to NOT chroot().
-chroot_local_user=YES
+#chroot_local_user=YES
 #chroot_list_enable=YES
 # (default follows)
 #chroot_list_file=/etc/vsftpd/chroot_list
@@ -113,6 +113,7 @@ listen=YES
 # Make sure, that one of the listen options is commented !!
 #listen_ipv6=YES
 
+anon_root=/var/ftp
 pam_service_name=vsftpd
-userlist_enable=YES
-tcp_wrappers=YES
+# userlist_enable=YES
+# tcp_wrappers=YES

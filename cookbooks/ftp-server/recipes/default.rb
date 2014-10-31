@@ -4,11 +4,14 @@
 #
 # Copyright (c) 2014 The Authors, All Rights Reserved.
 
-package 'vsftpd'
-
-service 'vsftpd' do
-  action [:start, :enable]
+user "ftpsecure" do
+  comment "secure ftp user"
+  system true
+  shell "/bin/false"
+  action :create
 end
+
+package 'vsftpd'
 
 template '/etc/vsftpd.conf' do
   source 'vsftpd.conf.erb'
@@ -17,6 +20,11 @@ template '/etc/vsftpd.conf' do
 # local_enable=YES
 # chroot_local_user=YES
 end 
+
+service 'vsftpd' do
+  action [:stop, :start, :enable]
+end
+
 
 service 'iptables' do
   # action :stop
